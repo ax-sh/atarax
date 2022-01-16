@@ -53,11 +53,9 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/catalogue"],
+      "executor": "@nxext/vitest:vitest",
       "options": {
-        "jestConfig": "apps/catalogue/jest.config.js",
-        "passWithNoTests": true
+        "command": "run"
       }
     }
   },
