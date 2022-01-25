@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "cart": "libs/cart",
     "catalogue": "apps/catalogue"
   }
 }

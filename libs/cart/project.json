@@ -1,0 +1,25 @@
+{
+  "root": "libs/cart",
+  "sourceRoot": "libs/cart/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nxext/vite:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/cart",
+        "configFile": "@nxext/vite/plugins/vite-package",
+        "frameworkConfigFile": "@nxext/react/plugins/vite",
+        "entryFile": "src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/cart/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { Cart } from '@atarax/cart';
 import React from 'react';
 import './app.scss';
 
@@ -11,7 +12,11 @@ const Layout = ({ children }: React.ComponentProps<any>) => {
   );
 };
 export function App({ title }: { title: string }) {
-  return <Layout>hello</Layout>;
+  return (
+    <Layout>
+      <Cart />
+    </Layout>
+  );
 }
 
 export default App;

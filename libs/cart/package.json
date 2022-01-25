@@ -1,0 +1,12 @@
+{
+  "name": "@atarax/cart",
+  "version": "0.0.1",
+  "main": "./cart.umd.js",
+  "module": "./cart.es.js",
+  "exports": {
+    ".": {
+      "import": "./cart.es.js",
+      "require": "./cart.umd.js"
+    }
+  }
+}
