@@ -35,7 +35,7 @@
       "options": {
         "outputPath": "dist/apps/catalogue",
         "baseHref": "/",
-        "configFile": "@nxext/vite/plugins/vite",
+        "configFile": "apps/catalogue/vite.config.js",
         "frameworkConfigFile": "@nxext/react/plugins/vite"
       },
       "configurations": {
@@ -53,11 +53,9 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/catalogue"],
+      "executor": "@nxext/vitest:vitest",
       "options": {
-        "jestConfig": "apps/catalogue/jest.config.js",
-        "passWithNoTests": true
+        "command": "run"
       }
     }
   },
