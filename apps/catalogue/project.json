@@ -10,7 +10,7 @@
       "options": {
         "outputPath": "dist/apps/catalogue",
         "baseHref": "/",
-        "configFile": "@nxext/vite/plugins/vite",
+        "configFile": "apps/catalogue/vite.config.js",
         "frameworkConfigFile": "@nxext/react/plugins/vite"
       },
       "configurations": {
