@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "catalogue": "apps/catalogue"
+    "catalogue": "apps/catalogue",
+    "video-playlist": "apps/video-playlist"
   }
 }
