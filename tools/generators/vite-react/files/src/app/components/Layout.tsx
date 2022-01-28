@@ -1,14 +1,11 @@
 import React from 'react';
 
-function List({
-  children,
-  ...props
-}: React.PropsWithChildren<{ children: any[] }>) {
+function List({ children, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <ul {...props}>
-      {children.map((child, index) => (
-        <li key={index}>{child}</li>
-      ))}
+      {React.Children.map(children, (child, index) => {
+        return <li key={index}>{child}</li>;
+      })}
     </ul>
   );
 }
@@ -21,7 +18,7 @@ function Layout({ children, ...props }: React.PropsWithChildren<LayoutProps>) {
     <div role={'layout'} {...props}>
       <header>
         <nav>
-          <List>
+          <List className="main-nav">
             <a>Home</a>
             <a>Contact</a>
             <a>About</a>
