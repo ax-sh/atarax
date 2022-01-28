@@ -1,11 +1,13 @@
 import React from 'react';
 import { getUserInfo } from './apis';
 import Layout from './components/Layout';
-
+import { useQuery } from 'react-query';
 function App() {
-  React.useEffect(() => {
-    getUserInfo().then(console.log);
-  }, []);
+  const { data, isLoading } = useQuery('userInfo', getUserInfo);
+
+  if (isLoading) return <h1>Loading</h1>;
+  console.log('user info', data);
+
   return (
     <Layout>
       <header>App</header>
