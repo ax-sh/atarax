@@ -21,6 +21,7 @@ export const handlers = [
       // If not authenticated, respond with a 403 error
       return res(
         ctx.status(403),
+        ctx.delay(2000),
         ctx.json({
           errorMessage: 'Not authorized',
         })
