@@ -1,8 +1,7 @@
-
-
 # Atarax
 
-This project was generated using [Nx](https://nx.dev).
+update
+nx migrate latest # same as nx migrate @nrwl/workspace@latest
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
@@ -78,8 +77,6 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
 
 ## ☁ Nx Cloud
 
