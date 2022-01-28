@@ -1,6 +1,9 @@
 import React from 'react';
 
-function List({ children, ...props }: React.HTMLAttributes<HTMLElement>) {
+export function List({
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLElement>) {
   return (
     <ul {...props}>
       {React.Children.map(children, (child, index) => {
@@ -10,18 +13,19 @@ function List({ children, ...props }: React.HTMLAttributes<HTMLElement>) {
   );
 }
 
-interface LayoutProps {
-  role?: string;
+interface LayoutProps extends React.HTMLAttributes<HTMLElement> {
+  status?: 'loading' | 'error' | 'success';
 }
-function Layout({ children, ...props }: React.PropsWithChildren<LayoutProps>) {
+// React.PropsWithChildren<LayoutProps>
+function Layout({ children, className, ...props }: LayoutProps) {
   return (
-    <div role={'layout'} {...props}>
+    <div className={`Layout ${className}`} {...props}>
       <header>
         <nav>
-          <List className="main-nav">
-            <a>Home</a>
-            <a>Contact</a>
-            <a>About</a>
+          <List className="main-nav flex justify-around w-40">
+            <b>Home</b>
+            <b>Contact</b>
+            <b>About</b>
           </List>
         </nav>
       </header>
