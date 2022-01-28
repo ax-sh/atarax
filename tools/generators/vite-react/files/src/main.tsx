@@ -6,6 +6,12 @@ import 'virtual:windi-devtools';
 
 import App from './app/App';
 
+if (process.env.NODE_ENV === 'development') {
+  console.log('Development mode');
+
+  import('./mocks/browser').then(({ worker }) => worker.start());
+}
+
 ReactDOM.render(
   <StrictMode>
     <BrowserRouter>
