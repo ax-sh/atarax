@@ -15,13 +15,13 @@ interface LayoutProps {
 }
 function Layout({ children, ...props }: React.PropsWithChildren<LayoutProps>) {
   return (
-    <div role={'layout'} {...props}>
+    <div {...props}>
       <header>
         <nav className="flex justify-end p-4 py-8">
           <List className="main-nav flex  w-40 justify-between children:cursor-pointer">
-            <a>Home</a>
-            <a>Contact</a>
-            <a>About</a>
+            <b>Home</b>
+            <b>Contact</b>
+            <b>About</b>
           </List>
         </nav>
       </header>

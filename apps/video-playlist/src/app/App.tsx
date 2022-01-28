@@ -14,14 +14,20 @@ const Video = ({ src }: { src: string }) => {
   );
 };
 
-const VideoPlaylists = ({ children }: React.PropsWithChildren<{}>) => {
+const VideoPlaylists = ({
+  children,
+}: React.PropsWithChildren<Record<string, unknown>>) => {
   return (
     <div className="video-playlist overflow-auto h-full bg-black">
       {children}
     </div>
   );
 };
-const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
+
+interface VideoAndPlaylistProps {
+  playlist: any[];
+}
+const VideoAndPlaylist = ({ playlist }: VideoAndPlaylistProps) => {
   const [src, setSrc] = React.useState(
     'http://techslides.com/demos/sample-videos/small.mp4'
   );
@@ -83,6 +89,9 @@ const fetchMockMedia = () => fetch(mockMediasArrUrl).then((x) => x.json());
 
 const useVideosApi = () => useQuery('videos', fetchMockMedia);
 
+const ProgressBar = () => {
+  return <input type="range" className="styled-slider slider-progress" />;
+};
 function App() {
   const { data, status, isLoading } = useVideosApi();
   if (isLoading) return <h1>Loading</h1>;
@@ -91,7 +100,8 @@ function App() {
   return (
     <Layout>
       <header>
-        <VideoAndPlaylist playlist={data} />
+        {/* <VideoAndPlaylist playlist={data} /> */}
+        <ProgressBar />
       </header>
     </Layout>
   );
