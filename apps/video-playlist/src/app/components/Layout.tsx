@@ -17,8 +17,8 @@ function Layout({ children, ...props }: React.PropsWithChildren<LayoutProps>) {
   return (
     <div role={'layout'} {...props}>
       <header>
-        <nav>
-          <List className="main-nav">
+        <nav className="flex justify-end p-4 py-8">
+          <List className="main-nav flex  w-40 justify-between children:cursor-pointer">
             <a>Home</a>
             <a>Contact</a>
             <a>About</a>
