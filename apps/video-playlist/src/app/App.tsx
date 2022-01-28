@@ -77,7 +77,7 @@ const fetchPanets = async () => {
 };
 
 const mockMediasArrUrl =
-  'https://gist.githubusercontent.com/ax-sh/00cac0411a7bf0908ab3146e509af8dc/raw/c8ceb3d592336c533c6a2d2d1c6ab44ec19a7b51/mock-medias.json';
+  'https://gist.githubusercontent.com/ax-sh/00cac0411a7bf0908ab3146e509af8dc/raw/fa16d62b6025a170c80665905e06afef2f7dfd55/mock-medias.json';
 
 const fetchMockMedia = () => fetch(mockMediasArrUrl).then((x) => x.json());
 
