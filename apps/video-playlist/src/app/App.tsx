@@ -35,7 +35,7 @@ const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
         <VideoPlaylists>
           {playlist.map((item: any, index: number) => {
             const { title, item_image } = {
-              title: item.name,
+              title: 'item.name',
               item_image: 'https://source.unsplash.com/200x200?random',
             };
 
@@ -62,7 +62,12 @@ const fetchPanets = async () => {
   return result.json();
 };
 
-const useVideosApi = () => useQuery('videos', fetchPanets);
+const fetchMockMedia = () =>
+  fetch(
+    'https://gist.githubusercontent.com/ax-sh/42d65ad06031721358b041eef0785d4b/raw/5fe1e6671d1b4ebda6f84d49888a245c0cff1918/mock-media.json'
+  ).then((x) => x.json());
+
+const useVideosApi = () => useQuery('videos', fetchMockMedia);
 
 function App() {
   const { data, status, isLoading } = useVideosApi();
@@ -72,7 +77,7 @@ function App() {
   return (
     <Layout>
       <header>
-        <VideoAndPlaylist playlist={data.results} />
+        <VideoAndPlaylist playlist={data.videos} />
       </header>
     </Layout>
   );
