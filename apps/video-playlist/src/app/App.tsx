@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './components/Layout';
 
+import { useQuery } from 'react-query';
 const Video = ({ src }: { src: string }) => {
   return (
     <div className="video-wrapper h-full w-full flex justify-center aspect-video ">
@@ -27,7 +28,18 @@ const VideoAndPlaylist = () => {
   );
 };
 
+const fetchPanets = async () => {
+  const result = await fetch('https://swapi.dev/api/people');
+  return result.json();
+};
+
+const useVideosApi = () => useQuery('videos', fetchPanets);
+
 function App() {
+  const { data, status, isLoading } = useVideosApi();
+  if (isLoading) return <h1>Loading</h1>;
+  console.log('data', status, data);
+
   return (
     <Layout>
       <header>
