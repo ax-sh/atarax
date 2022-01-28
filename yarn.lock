@@ -1704,6 +1704,21 @@
     yargs "15.4.1"
     yargs-parser "20.0.0"
 
+"@ns3/nx-core@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ns3/nx-core/-/nx-core-2.0.0.tgz#3f87de3baf37406facf2ee302f70dae40f0ff1f9"
+  integrity sha512-fbuR1DZB9KjYZ/Mu0DdT1cZqIKhVG9wX9ygZWE2dMPCfDXLCwCiq6u5kKd50WEU+WztjcqzAZORa3iaE3V39Hw==
+  dependencies:
+    fs-extra "^10.0.0"
+
+"@ns3/nx-jest-playwright@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ns3/nx-jest-playwright/-/nx-jest-playwright-2.0.0.tgz#9225fc62d52d39b0c35c366fbadb0b4f37217cc8"
+  integrity sha512-a5Cf10kXOgmfIRMaShN7T7v5YMS+Ss0hNbFJQDTKAs2sQkL1/KMZjzYGUkeNIrN1Zj6JOJ3SboHWPFTPzC7pSQ==
+  dependencies:
+    "@ns3/nx-core" "^2.0.0"
+    fs-extra "^10.0.0"
+
 "@nxext/react@^13.0.3":
   version "13.0.3"
   resolved "https://registry.yarnpkg.com/@nxext/react/-/react-13.0.3.tgz#23b5dee7fb9948321d7edf956643516999f25beb"
@@ -5039,6 +5054,15 @@ fs-extra@8.1.0, fs-extra@^8.1.0:
     graceful-fs "^4.2.0"
     jsonfile "^4.0.0"
     universalify "^0.1.0"
+
+fs-extra@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
+  integrity sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
 
 fs-extra@^9.0.0, fs-extra@^9.1.0:
   version "9.1.0"
