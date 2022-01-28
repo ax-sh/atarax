@@ -1,11 +1,10 @@
 import React from 'react';
+import { getUserInfo } from './apis';
 import Layout from './components/Layout';
 
 function App() {
   React.useEffect(() => {
-    fetch('/user')
-      .then((x) => x.json())
-      .then(console.log);
+    getUserInfo().then(console.log);
   }, []);
   return (
     <Layout>
