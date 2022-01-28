@@ -30,6 +30,7 @@
     "@nrwl/web": "13.6.1",
     "@nrwl/workspace": "13.6.1",
     "@ns3/nx-jest-playwright": "^2.0.0",
+    "@ns3/nx-serverless": "^2.0.0",
     "@nxext/react": "^13.0.3",
     "@nxext/vitest": "^13.0.0-beta.0",
     "@testing-library/react": "12.1.2",
@@ -66,4 +67,3 @@
     "windicss": "^3.4.2"
   }
 }
-
