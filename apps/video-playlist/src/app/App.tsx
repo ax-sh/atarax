@@ -24,15 +24,19 @@ const VideoPlaylists = ({
   );
 };
 
+interface PlaylistItem {
+  video: string;
+  image: string;
+}
 interface VideoAndPlaylistProps {
-  playlist: any[];
+  playlist: PlaylistItem[];
 }
 const VideoAndPlaylist = ({ playlist }: VideoAndPlaylistProps) => {
   const [src, setSrc] = React.useState(
     'http://techslides.com/demos/sample-videos/small.mp4'
   );
 
-  const handleThumbClick = (item_data) => {
+  const handleThumbClick = (item_data: PlaylistItem) => {
     setSrc(item_data.video);
   };
 
