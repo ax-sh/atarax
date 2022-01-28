@@ -30,6 +30,7 @@ export const handlers = [
     // If authenticated, return a mocked user details
     return res(
       ctx.status(200),
+      ctx.delay(2000),
       ctx.json({
         username: 'admin',
       })
