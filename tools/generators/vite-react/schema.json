@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "vite-react",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "New React Vite Name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    }
+  },
+  "required": ["name"]
+}
