@@ -33,14 +33,17 @@ const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
       </div>
       <div className="col-span-4 row-span-1">
         <VideoPlaylists>
-          {playlist.map((item: any) => {
+          {playlist.map((item: any, index: number) => {
             const { title, item_image } = {
               title: item.name,
               item_image: 'https://source.unsplash.com/200x200?random',
             };
 
             return (
-              <div className="cursor-pointer bg-white flex m-4 hover:opacity-50 rounded-xl overflow-hidden">
+              <div
+                key={index}
+                className="cursor-pointer bg-white flex m-4 hover:opacity-50 rounded-xl overflow-hidden"
+              >
                 <img src={item_image} alt="thumb" className="thumb h-30 w-30" />
                 <div className="flex-grow ml-4 p-2">
                   <h6>{title}</h6>
