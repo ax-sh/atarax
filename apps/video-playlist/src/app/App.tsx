@@ -13,17 +13,43 @@ const Video = ({ src }: { src: string }) => {
     </div>
   );
 };
-const VideoAndPlaylist = () => {
+
+const VideoPlaylists = ({ children }: React.PropsWithChildren<{}>) => {
+  return (
+    <div className="video-playlist overflow-auto h-full bg-black">
+      {children}
+    </div>
+  );
+};
+const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
   const [src, setSrc] = React.useState(
     'http://techslides.com/demos/sample-videos/small.mp4'
   );
 
   return (
-    <section className="h-120 bg-red-50 md:grid grid-cols-12">
-      <div className="col-span-8 bg-black relative">
+    <section className="h-120 md:grid grid-cols-12 grid-rows-1">
+      <div className="col-span-8  row-span-1 bg-black relative">
         <Video src={src} />
       </div>
-      <div>video</div>
+      <div className="col-span-4 row-span-1">
+        <VideoPlaylists>
+          {playlist.map((item: any) => {
+            const { title, item_image } = {
+              title: item.name,
+              item_image: 'https://source.unsplash.com/200x200?random',
+            };
+
+            return (
+              <div className="cursor-pointer bg-white flex m-4 hover:opacity-50 rounded-xl overflow-hidden">
+                <img src={item_image} alt="thumb" className="thumb h-30 w-30" />
+                <div className="flex-grow ml-4 p-2">
+                  <h6>{title}</h6>
+                </div>
+              </div>
+            );
+          })}
+        </VideoPlaylists>
+      </div>
     </section>
   );
 };
@@ -43,7 +69,7 @@ function App() {
   return (
     <Layout>
       <header>
-        <VideoAndPlaylist />
+        <VideoAndPlaylist playlist={data.results} />
       </header>
     </Layout>
   );
