@@ -6,7 +6,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "New React Vite Name",
+      "description": "Name for the new React Vite App",
       "$default": {
         "$source": "argv",
         "index": 0
