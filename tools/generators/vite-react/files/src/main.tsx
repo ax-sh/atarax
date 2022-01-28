@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import 'virtual:windi.css';
 import 'virtual:windi-devtools';
 
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
 import App from './app/App';
 
 if (process.env.NODE_ENV === 'development') {
@@ -11,12 +14,17 @@ if (process.env.NODE_ENV === 'development') {
 
   import('./mocks/browser').then(({ worker }) => worker.start());
 }
+// Create a client
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </StrictMode>,
   document.getElementById('root')
 );
