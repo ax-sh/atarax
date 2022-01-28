@@ -26,6 +26,10 @@ const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
     'http://techslides.com/demos/sample-videos/small.mp4'
   );
 
+  React.useEffect(() => {
+    setSrc(playlist[0]);
+  }, [playlist]);
+
   return (
     <section className="h-120 md:grid grid-cols-12 grid-rows-1">
       <div className="col-span-8  row-span-1 bg-black relative">
