@@ -18,7 +18,7 @@ function Layout({ children, ...props }: React.PropsWithChildren<LayoutProps>) {
     <div role={'layout'} {...props}>
       <header>
         <nav>
-          <List>
+          <List className="main-nav">
             <a>Home</a>
             <a>Contact</a>
             <a>About</a>
