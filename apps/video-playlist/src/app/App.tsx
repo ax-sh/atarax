@@ -26,13 +26,13 @@ const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
     'http://techslides.com/demos/sample-videos/small.mp4'
   );
 
-  React.useEffect(() => {
-    setSrc(playlist[0]);
-  }, [playlist]);
-
   const handleThumbClick = (item_data) => {
-    setSrc(item_data);
+    setSrc(item_data.video);
   };
+
+  React.useEffect(() => {
+    handleThumbClick(playlist[0]);
+  }, [playlist]);
 
   return (
     <section className="h-120 md:grid grid-cols-12 grid-rows-1">
@@ -41,10 +41,11 @@ const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
       </div>
       <div className="col-span-4 row-span-1">
         <VideoPlaylists>
-          {playlist.map((item: any, index: number) => {
+          {playlist.map((item, index: number) => {
             const { title, item_image } = {
               title: 'item.name',
-              item_image: 'https://source.unsplash.com/200x200?random',
+              item_image: item.image,
+              // item_image: 'https://source.unsplash.com/200x200?random',
             };
 
             return (
@@ -53,7 +54,11 @@ const VideoAndPlaylist = ({ playlist }: { playlist: any[] }) => {
                 className="cursor-pointer bg-white flex m-4 hover:opacity-50 rounded-xl overflow-hidden"
                 onClick={() => handleThumbClick(item)}
               >
-                <img src={item_image} alt="thumb" className="thumb h-30 w-30" />
+                <img
+                  src={item_image}
+                  alt="thumb"
+                  className="thumb h-30 w-30 object-fill"
+                />
                 <div className="flex-grow ml-4 p-2">
                   <h6>{title}</h6>
                 </div>
@@ -71,10 +76,10 @@ const fetchPanets = async () => {
   return result.json();
 };
 
-const fetchMockMedia = () =>
-  fetch(
-    'https://gist.githubusercontent.com/ax-sh/42d65ad06031721358b041eef0785d4b/raw/5fe1e6671d1b4ebda6f84d49888a245c0cff1918/mock-media.json'
-  ).then((x) => x.json());
+const mockMediasArrUrl =
+  'https://gist.githubusercontent.com/ax-sh/00cac0411a7bf0908ab3146e509af8dc/raw/c8ceb3d592336c533c6a2d2d1c6ab44ec19a7b51/mock-medias.json';
+
+const fetchMockMedia = () => fetch(mockMediasArrUrl).then((x) => x.json());
 
 const useVideosApi = () => useQuery('videos', fetchMockMedia);
 
@@ -86,7 +91,7 @@ function App() {
   return (
     <Layout>
       <header>
-        <VideoAndPlaylist playlist={data.videos} />
+        <VideoAndPlaylist playlist={data} />
       </header>
     </Layout>
   );
