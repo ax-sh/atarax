@@ -5,6 +5,7 @@ import 'virtual:windi.css';
 import 'virtual:windi-devtools';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 import App from './app/App';
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </StrictMode>,
   document.getElementById('root')
