@@ -10581,6 +10581,11 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+vite-plugin-html-env@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vite-plugin-html-env/-/vite-plugin-html-env-1.0.3.tgz#fe59eea62294ba150e6d0abcf9978ace597573c9"
+  integrity sha512-1sxw4cjnq8vwIN3NA4PVNAn5b78a5ctJAM56tF0ooAZ62ome6ZHyHzVB9aP0/N/JyabRo2kh0hP4ilCMAvjT2A==
+
 vite-plugin-windicss@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.6.2.tgz#07a628464d938c895a1093614f07168f0e2ed830"
