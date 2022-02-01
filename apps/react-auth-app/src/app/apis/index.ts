@@ -13,4 +13,12 @@ function getAnimeInfo() {
 	return instance.get('/fma_brotherhood/2').then((res) => res.data);
 }
 
-export { getUserInfo, getAnimeInfo };
+async function login(email: string, password: string) {
+	const response = await axios.post('/api/login', {
+		email,
+		password,
+	});
+	return response.data;
+}
+
+export { getUserInfo, getAnimeInfo, login };
