@@ -21,10 +21,6 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 	);
 }
 
-function Bomb() {
-	throw new Error('💥 CABOOM 💥');
-}
-
 interface LayoutProps extends React.HTMLAttributes<HTMLElement> {
 	status?: 'loading' | 'error' | 'success';
 }
