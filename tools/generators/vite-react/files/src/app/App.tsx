@@ -2,18 +2,30 @@ import React from 'react';
 import { getUserInfo } from './apis';
 import Layout from './components/Layout';
 import { useQuery } from 'react-query';
+
+const ApiError = ({ error }: any) => {
+	const { message, ...err } = error;
+	return (
+		<div role={'alert'}>
+			<h1>Error {message}</h1>
+			<pre>{JSON.stringify(err, null, 4)}</pre>
+		</div>
+	);
+};
+
 function App() {
-  const { data, isLoading, error } = useQuery('userInfo', getUserInfo);
+	const { data, isLoading, error } = useQuery('userInfo', getUserInfo);
 
-  if (isLoading) return <h1>Loading</h1>;
-  if (error) return <h1>Error {JSON.stringify(error, null, 4)}</h1>;
-  console.log('user info', data);
+	if (isLoading) return <h1>Loading</h1>;
+	if (error) return <ApiError error={error} />;
 
-  return (
-    <Layout>
-      <header>App</header>
-    </Layout>
-  );
+	console.log('user info', data);
+
+	return (
+		<Layout>
+			<header>App</header>
+		</Layout>
+	);
 }
 
 export default App;
