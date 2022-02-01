@@ -1,33 +1,30 @@
-import {
-  Tree,
-  addProjectConfiguration,
-  readProjectConfiguration,
-} from '@nrwl/devkit';
+import { Tree, addProjectConfiguration, readProjectConfiguration } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 // import generator from "./config.impl";
+import { expect, test, assert, describe, beforeEach } from 'vitest';
 
 describe('vite-react', () => {
-  const projectName = 'vite-react';
-  let host: Tree;
+	const projectName = 'vite-react';
+	let host: Tree;
 
-  beforeEach(() => {
-    host = createTreeWithEmptyWorkspace();
+	beforeEach(() => {
+		host = createTreeWithEmptyWorkspace();
 
-    addProjectConfiguration(host, projectName, {
-      projectType: 'application',
-      root: `./apps/${projectName}`,
-      sourceRoot: `./apps/${projectName}/src`,
-      targets: {
-        build: {
-          executor: '@test/test:build',
-          options: {
-            test: 'test',
-          },
-        },
-      },
-    });
-  });
-  it.only('sanity test', () => {
-    expect(1 + 1).toBe(2);
-  });
+		addProjectConfiguration(host, projectName, {
+			projectType: 'application',
+			root: `./apps/${projectName}`,
+			sourceRoot: `./apps/${projectName}/src`,
+			targets: {
+				build: {
+					executor: '@test/test:build',
+					options: {
+						test: 'test',
+					},
+				},
+			},
+		});
+	});
+	test.only('sanity test', () => {
+		expect(1 + 1).toBe(2);
+	});
 });
