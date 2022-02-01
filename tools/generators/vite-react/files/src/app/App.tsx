@@ -22,7 +22,7 @@ function App() {
 	console.log('user info', data);
 
 	return (
-		<Layout>
+		<Layout className={'AppLayout'}>
 			<header>App</header>
 		</Layout>
 	);
