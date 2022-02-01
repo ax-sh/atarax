@@ -1,0 +1,57 @@
+{
+	"root": "apps/react-auth-app",
+	"sourceRoot": "apps/react-auth-app/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nxext/vite:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"outputPath": "dist/apps/react-auth-app",
+				"baseHref": "/",
+				"configFile": "@nxext/vite/plugins/vite",
+				"frameworkConfigFile": "@nxext/react/plugins/vite"
+			},
+			"configurations": {
+				"production": {
+					"fileReplacements": [
+						{
+							"replace": "apps/react-auth-app/src/environments/environment.ts",
+							"with": "apps/react-auth-app/src/environments/environment.prod.ts"
+						}
+					],
+					"optimization": true,
+					"outputHashing": "all",
+					"sourceMap": false,
+					"namedChunks": false,
+					"extractLicenses": true,
+					"vendorChunk": false
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nxext/vite:dev",
+			"options": {
+				"outputPath": "dist/apps/react-auth-app",
+				"baseHref": "/",
+				"configFile": "apps/react-auth-app/vite.config.ts",
+				"frameworkConfigFile": "@nxext/react/plugins/vite"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "react-auth-app:build:production",
+					"hmr": false
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/react-auth-app/**/*.{ts,tsx,js,jsx}"]
+			}
+		}
+	},
+	"tags": []
+}

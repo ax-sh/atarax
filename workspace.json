@@ -1,4 +1,6 @@
 {
-  "version": 2,
-  "projects": {}
+	"version": 2,
+	"projects": {
+		"react-auth-app": "apps/react-auth-app"
+	}
 }
