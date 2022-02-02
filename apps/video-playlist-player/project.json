@@ -1,0 +1,57 @@
+{
+	"root": "apps/video-playlist-player",
+	"sourceRoot": "apps/video-playlist-player/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nxext/vite:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"outputPath": "dist/apps/video-playlist-player",
+				"baseHref": "/",
+				"configFile": "@nxext/vite/plugins/vite",
+				"frameworkConfigFile": "@nxext/react/plugins/vite"
+			},
+			"configurations": {
+				"production": {
+					"fileReplacements": [
+						{
+							"replace": "apps/video-playlist-player/src/environments/environment.ts",
+							"with": "apps/video-playlist-player/src/environments/environment.prod.ts"
+						}
+					],
+					"optimization": true,
+					"outputHashing": "all",
+					"sourceMap": false,
+					"namedChunks": false,
+					"extractLicenses": true,
+					"vendorChunk": false
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nxext/vite:dev",
+			"options": {
+				"outputPath": "dist/apps/video-playlist-player",
+				"baseHref": "/",
+				"configFile": "apps/video-playlist-player/vite.config.ts",
+				"frameworkConfigFile": "@nxext/react/plugins/vite"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "video-playlist-player:build:production",
+					"hmr": false
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/video-playlist-player/**/*.{ts,tsx,js,jsx}"]
+			}
+		}
+	},
+	"tags": []
+}
