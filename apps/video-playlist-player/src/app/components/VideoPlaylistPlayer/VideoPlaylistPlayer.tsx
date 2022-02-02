@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent, VideoHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 // https://javascript.plainenglish.io/create-custom-video-controller-using-react-player-7a3d7ed8850a
@@ -43,14 +43,17 @@ const CustoPlayer = (props: ReactPlayerProps) => {
 	const handleProgress = (e: { playedSeconds: number }) => {
 		setState({ ...state, currentSeek: e.playedSeconds });
 	};
-	const handleSeekChange = (e: { target: { value: number } }) => {
-		setState({ ...state, currentSeek: e.target.value });
+	const handleSeekChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setState({ ...state, currentSeek: +e.target.value });
 		if (!ref.current) return;
-		ref.current.seekTo(e.target.value);
+		ref.current.seekTo(+e.target.value);
+		console.log(e, 'sooooos');
 	};
 	const handlePlay = () => {
 		setState((state) => {
 			if (state.totalDuration === 0) state.totalDuration = ref.current?.getDuration() || 0;
+
+			// console.log(ref.current, 'ss');
 
 			return { ...state, playing: true };
 		});
