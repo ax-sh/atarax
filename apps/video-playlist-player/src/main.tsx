@@ -9,12 +9,12 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 import App from './app/App';
 
-if (process.env.NODE_ENV === 'development') {
-	console.log('Development mode');
+// if (process.env.NODE_ENV === 'development') {
+// 	console.log('Development mode');
 
-	import('./mocks/browser').then(({ worker }) => worker.start());
-	document.title = 'DEVELOPMENT';
-}
+// 	import('./mocks/browser').then(({ worker }) => worker.start());
+// 	document.title = 'DEVELOPMENT';
+// }
 // Create a client
 const queryClient = new QueryClient();
 

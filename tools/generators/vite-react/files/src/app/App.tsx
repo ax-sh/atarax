@@ -13,6 +13,8 @@ const ApiError = ({ error }: any) => {
 	);
 };
 
+const
+
 function App() {
 	const { data, isLoading, error } = useQuery('userInfo', getUserInfo);
 
@@ -23,7 +25,7 @@ function App() {
 
 	return (
 		<Layout className={'AppLayout'}>
-			<header>App</header>
+			<VideoPlaylistPlayer></VideoPlaylistPlayer>
 		</Layout>
 	);
 }
