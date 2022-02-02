@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
-
+// https://javascript.plainenglish.io/create-custom-video-controller-using-react-player-7a3d7ed8850a
 export interface Playlist {
 	video: string;
 	image: string;
