@@ -30,18 +30,18 @@ const CustomPlayerControls = ({
 };
 const CustoPlayer = (props: ReactPlayerProps) => {
 	const [state, setState] = React.useState({ currentSeek: 0, playing: false, totalDuration: 0 });
-	const ref = React.useRef(null);
+	const ref = React.useRef<ReactPlayer>(null);
 	const handleProgress = (e: { playedSeconds: number }) => {
 		setState({ ...state, currentSeek: e.playedSeconds });
 	};
 	const handleSeekChange = (e: { target: { value: number } }) => {
 		setState({ ...state, currentSeek: e.target.value });
+		if (!ref.current) return;
 		ref.current.seekTo(e.target.value);
 	};
 	const handlePlay = () => {
 		setState((state) => {
-			if (state.totalDuration === 0) state.totalDuration = ref.current.getDuration();
-			console.log(ref.current.getDuration(), 'ggggggg');
+			if (state.totalDuration === 0) state.totalDuration = ref.current?.getDuration() || 0;
 
 			return { ...state, playing: true };
 		});
