@@ -1,10 +1,10 @@
 import React from 'react';
-import { getUserInfo } from './apis';
+import { getVideoPlaylist } from './apis';
 import Layout from './components/Layout';
 import { useQuery } from 'react-query';
-import { VideoPlaylistPlayer } from './components/VideoPlaylistPlayer/VideoPlaylistPlayer';
+import { Playlist, VideoPlaylistPlayer } from './components/VideoPlaylistPlayer/VideoPlaylistPlayer';
 
-const ApiError = ({ error }: any) => {
+const ApiError = ({ error }: { error: Error }) => {
 	const { message, ...err } = error;
 	return (
 		<div role={'alert'}>
@@ -15,23 +15,16 @@ const ApiError = ({ error }: any) => {
 };
 
 function App() {
-	// const { data, isLoading, error } = useQuery('userInfo', getUserInfo);
+	const { data: playlist, isLoading, error } = useQuery<Playlist[]>('videoPlaylist', getVideoPlaylist);
 
-	// if (isLoading) return <h1>Loading</h1>;
-	// if (error) return <ApiError error={error} />;
-
-	// console.log('user info', data);
-	const [playlist] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+	if (isLoading) return <h1>Loading</h1>;
+	if (error) return <ApiError error={error} />;
 
 	return (
 		<Layout className={'AppLayout'}>
 			<VideoPlaylistPlayer>
-				{playlist.map((video, index) => {
-					return (
-						<VideoPlaylistPlayer.PlaylistItem key={index} data-src={video}>
-							<h1>{video}</h1>
-						</VideoPlaylistPlayer.PlaylistItem>
-					);
+				{playlist?.map((videoData, index: number) => {
+					return <VideoPlaylistPlayer.PlaylistItem key={index} {...videoData} />;
 				})}
 			</VideoPlaylistPlayer>
 		</Layout>

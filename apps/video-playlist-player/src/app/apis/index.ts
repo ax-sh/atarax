@@ -13,4 +13,12 @@ function getAnimeInfo() {
 	return instance.get('/fma_brotherhood/2').then((res) => res.data);
 }
 
-export { getUserInfo, getAnimeInfo };
+function getVideoPlaylist() {
+	return axios
+		.get(
+			'https://gist.githubusercontent.com/ax-sh/00cac0411a7bf0908ab3146e509af8dc/raw/fa16d62b6025a170c80665905e06afef2f7dfd55/mock-medias.json'
+		)
+		.then((res) => res.data);
+}
+
+export { getUserInfo, getAnimeInfo, getVideoPlaylist };
