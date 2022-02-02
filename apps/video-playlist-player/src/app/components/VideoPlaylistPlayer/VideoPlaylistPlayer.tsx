@@ -82,6 +82,8 @@ export function VideoPlaylistPlayer({ children }: React.PropsWithChildren<VideoP
 		'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4'
 	);
 	React.useEffect(() => {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
 		const firstChild = children?.[0];
 		if (firstChild) {
 			console.log('foo', firstChild.props);
