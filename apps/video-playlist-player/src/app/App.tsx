@@ -4,7 +4,7 @@ import Layout from './components/Layout';
 import { useQuery } from 'react-query';
 import { Playlist, VideoPlaylistPlayer } from './components/VideoPlaylistPlayer/VideoPlaylistPlayer';
 
-const ApiError = ({ error }: { error: Error | unknown }) => {
+const ApiError = ({ error }: { error: Error | any }) => {
 	const { message, ...err } = error || { message: 'null', err: 'r' };
 	return (
 		<div role={'alert'}>

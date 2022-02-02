@@ -1,4 +1,4 @@
-import React, { ChangeEvent, VideoHTMLAttributes } from 'react';
+import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 // https://javascript.plainenglish.io/create-custom-video-controller-using-react-player-7a3d7ed8850a
@@ -11,7 +11,7 @@ interface CustomPlayerControlsProps {
 	playing: boolean;
 	handlePause: () => void;
 	handlePlay: () => void;
-	handleSeekChange: () => void;
+	handleSeekChange: (e: ChangeEvent<HTMLInputElement>) => void;
 	currentSeek: number;
 	totalDuration: number;
 }
