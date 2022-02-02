@@ -7,6 +7,15 @@ export interface Playlist {
 	image: string;
 }
 
+interface CustomPlayerControlsProps {
+	playing: boolean;
+	handlePause: () => void;
+	handlePlay: () => void;
+	handleSeekChange: () => void;
+	currentSeek: number;
+	totalDuration: number;
+}
+
 const CustomPlayerControls = ({
 	playing,
 	handlePause,
@@ -14,7 +23,7 @@ const CustomPlayerControls = ({
 	handleSeekChange,
 	currentSeek,
 	totalDuration,
-}: any) => {
+}: CustomPlayerControlsProps) => {
 	const percentage = (currentSeek / totalDuration).toFixed(3);
 	return (
 		<div className="bg-white">
