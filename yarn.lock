@@ -2050,6 +2050,19 @@
     webpack-merge "^5.8.0"
     webpack-node-externals "^3.0.0"
 
+"@nrwl/nx-plugin@^13.7.2":
+  version "13.7.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/nx-plugin/-/nx-plugin-13.7.2.tgz#8497b49f5c026beaa26fb961a17997be608183ee"
+  integrity sha512-odLEQwIdYLH8TO1QXdF+Mwf2+qPIhx5BOnXK62gKmaudOepfl/OskbCy/SFuYOai7f/1jrTlLwwmnF99jqxeUg==
+  dependencies:
+    "@nrwl/devkit" "13.7.2"
+    "@nrwl/jest" "13.7.2"
+    "@nrwl/linter" "13.7.2"
+    "@nrwl/node" "13.7.2"
+    fs-extra "^9.1.0"
+    rxjs "^6.5.4"
+    tslib "^2.3.0"
+
 "@nrwl/react@13.6.1":
   version "13.6.1"
   resolved "https://registry.npmjs.org/@nrwl/react/-/react-13.6.1.tgz"

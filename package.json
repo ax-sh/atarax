@@ -39,10 +39,11 @@
     "@nrwl/nest": "^13.7.2",
     "@nrwl/next": "^13.7.2",
     "@nrwl/node": "^13.7.2",
+    "@nrwl/nx-plugin": "^13.7.2",
     "@nrwl/react": "13.6.1",
     "@nrwl/tao": "13.6.1",
     "@nrwl/web": "13.6.1",
-    "@nrwl/workspace": "13.6.1",
+    "@nrwl/workspace": "13.6.0-beta.1",
     "@ns3/nx-jest-playwright": "^2.0.0",
     "@ns3/nx-serverless": "^2.0.0",
     "@nxext/react": "^13.0.3",
@@ -88,3 +89,4 @@
     "windicss": "^3.4.2"
   }
 }
+
