@@ -1,0 +1,10 @@
+.Layout {
+  main {
+    min-height: 100vh;
+  }
+}
+
+ul.list {
+  list-style: none;
+  @apply flex w-50 justify-around items-center;
+}
