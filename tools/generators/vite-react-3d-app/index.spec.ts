@@ -1,7 +1,7 @@
 import { expect, test, assert, describe, beforeEach } from 'vitest';
 import { applicationGenerator } from '@nxext/react/src/generators/application/application';
 import { ViteReactThreeJsAppGeneratorSchema } from './schema';
-import { readProjectConfiguration, Tree } from '@nrwl/devkit';
+import { getWorkspaceLayout, readProjectConfiguration, Tree } from '@nrwl/devkit';
 import { Linter } from '@nrwl/linter';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 
@@ -29,5 +29,10 @@ describe('ViteReactThreeJsAppGeneratorSchema', () => {
 	test('should run successfully', () => {
 		const config = readProjectConfiguration(tree, schema.project);
 		expect(config).toBeDefined();
+	});
+	test('get WorkspaceLayout', async () => {
+		const workspace = getWorkspaceLayout(tree);
+		console.log(workspace);
+		expect(workspace).toBeDefined();
 	});
 });
