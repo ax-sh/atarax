@@ -35,7 +35,7 @@
       "options": {
         "outputPath": "dist/apps/minimal-react-vite",
         "baseHref": "/",
-        "configFile": "@nxext/vite/plugins/vite",
+        "configFile": "apps/minimal-react-vite/vite.config.ts",
         "frameworkConfigFile": "@nxext/react/plugins/vite"
       },
       "configurations": {
