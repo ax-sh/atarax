@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"cli": "nx",
+	"$id": "vite-react-3d-app",
+	"type": "object",
+	"properties": {
+		"project": {
+			"type": "string",
+			"description": "Project name",
+			"$default": {
+				"$source": "argv",
+				"index": 0
+			}
+		}
+	},
+	"required": ["project"]
+}
