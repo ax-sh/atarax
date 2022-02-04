@@ -8,6 +8,7 @@ import {
   joinPathFragments,
 } from '@nrwl/devkit';
 import { Linter } from '@nrwl/linter';
+import { stringUtils } from '@nrwl/workspace';
 
 import { applicationGenerator } from '@nxext/react/src/generators/application/application';
 import { MinimalReactVite } from './schema';
@@ -43,7 +44,10 @@ export default async function (tree: Tree, schema: MinimalReactVite) {
   const config = getModifiedProjectConfig(tree, schema);
   updateProjectConfiguration(tree, schema.name, config);
 
-  await generateFiles(tree, joinPathFragments(__dirname, 'files'), getProjectFolder(schema), schema);
+  await generateFiles(tree, joinPathFragments(__dirname, 'files'), getProjectFolder(schema), {
+    projectName: schema.name,
+    capitalize: stringUtils.capitalize,
+  });
 
   await formatFiles(tree);
   return () => {
