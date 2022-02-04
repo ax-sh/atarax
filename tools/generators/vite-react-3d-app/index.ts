@@ -10,14 +10,31 @@ import {
 import { Linter } from '@nrwl/linter';
 
 import { applicationGenerator } from '@nxext/react/src/generators/application/application';
-import { __await } from 'tslib';
 import { ViteReactThreeJsAppGeneratorSchema } from './schema';
 
-export function getProjectFolder() {}
+export function generateProjectBase(tree: Tree, schema: ViteReactThreeJsAppGeneratorSchema) {
+	return applicationGenerator(tree, {
+		name: schema.project,
+
+		style: 'scss',
+		skipFormat: false,
+		unitTestRunner: 'none',
+		linter: Linter.EsLint,
+		pascalCaseFiles: true,
+		skipWorkspaceJson: true,
+		globalCss: true,
+		babelJest: false,
+		strict: true,
+	});
+}
+
+export function getProjectFolder(schema: ViteReactThreeJsAppGeneratorSchema) {
+	return joinPathFragments('apps', schema.project);
+}
 
 export function updateProjectConfig(tree: Tree, schema: ViteReactThreeJsAppGeneratorSchema) {
 	const config = readProjectConfiguration(tree, schema.project);
-	const configFile = joinPathFragments('apps/', schema.project, 'vite.config.ts');
+	const configFile = joinPathFragments(getProjectFolder(schema), 'vite.config.ts');
 
 	config.targets.serve.options.configFile = configFile;
 
@@ -26,10 +43,11 @@ export function updateProjectConfig(tree: Tree, schema: ViteReactThreeJsAppGener
 }
 
 export function generateProjectFiles(tree: Tree, schema: ViteReactThreeJsAppGeneratorSchema) {
-	generateFiles(tree, joinPathFragments(__dirname, 'files'), joinPathFragments('apps/', schema.project), schema);
+	generateFiles(tree, joinPathFragments(__dirname, 'files'), getProjectFolder(schema), schema);
 }
 
 export default async function (tree: Tree, schema: ViteReactThreeJsAppGeneratorSchema) {
+	await generateProjectBase(tree, schema);
 	await formatFiles(tree);
 	return () => {
 		installPackagesTask(tree);
