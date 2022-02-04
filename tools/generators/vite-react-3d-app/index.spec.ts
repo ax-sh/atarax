@@ -1,8 +1,6 @@
-import { expect, test, assert, describe, beforeEach } from 'vitest';
-import { applicationGenerator } from '@nxext/react/src/generators/application/application';
+import { expect, test, assert, describe, beforeEach, it } from 'vitest';
 import { ViteReactThreeJsAppGeneratorSchema } from './schema';
 import { getWorkspaceLayout, joinPathFragments, readProjectConfiguration, Tree } from '@nrwl/devkit';
-import { Linter } from '@nrwl/linter';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { generateProjectBase, getProjectFolder } from '.';
 
@@ -30,7 +28,7 @@ describe('ViteReactThreeJsAppGeneratorSchema', () => {
 		expect(workspace).toBe('apps/test-threejs-app');
 	});
 
-	test('', () => {
+	test('hhh', () => {
 		const configFile = joinPathFragments(getProjectFolder(schema), 'vite.config.ts');
 		console.log(configFile);
 	});
