@@ -28,7 +28,7 @@ describe('ViteReactThreeJsAppGeneratorSchema', () => {
 		expect(workspace).toBe('apps/test-threejs-app');
 	});
 
-	test('hhh', () => {
+	test('config path test', () => {
 		const configFile = joinPathFragments(getProjectFolder(schema), 'vite.config.ts');
 		console.log(configFile);
 	});
