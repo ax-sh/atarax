@@ -6,7 +6,8 @@
 		"module": "commonjs",
 		"target": "esnext",
 		"types": ["node"],
-		"importHelpers": false
+		"importHelpers": true,
+		"forceConsistentCasingInFileNames": true
 	},
 	"include": ["**/*.ts"],
 	"exclude": ["**/files/*"]
