@@ -35,7 +35,7 @@ function Layout({ children, className, ...props }: React.AllHTMLAttributes<HTMLE
 }
 
 export function App() {
-  return <Layout>hello</Layout>;
+  return <Layout>App</Layout>;
 }
 
 export default App;
