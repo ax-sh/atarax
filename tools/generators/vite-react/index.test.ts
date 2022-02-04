@@ -24,7 +24,12 @@ describe('vite-react', () => {
 			},
 		});
 	});
-	test.only('sanity test', () => {
-		expect(1 + 1).toBe(23);
+	test('sanity test', () => {
+		expect(1 + 1).toBe(2);
+	});
+
+	test('should run successfully', () => {
+		const config = readProjectConfiguration(host, projectName);
+		expect(config).toBeDefined();
 	});
 });
