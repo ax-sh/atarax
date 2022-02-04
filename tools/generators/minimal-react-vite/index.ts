@@ -31,8 +31,20 @@ export function getProjectFolder(schema: MinimalReactVite) {
   return joinPathFragments('apps', schema.name);
 }
 
+export function getModifiedProjectConfig(tree: Tree, schema: MinimalReactVite) {
+  const config = readProjectConfiguration(tree, schema.name);
+  const configFile = joinPathFragments(getProjectFolder(schema), 'vite.config.ts');
+  config.targets.serve.options.configFile = configFile;
+  return config;
+}
+
 export default async function (tree: Tree, schema: MinimalReactVite) {
   await generateProjectBase(tree, schema);
+  const config = getModifiedProjectConfig(tree, schema);
+  updateProjectConfiguration(tree, schema.name, config);
+
+  await generateFiles(tree, joinPathFragments(__dirname, 'files'), getProjectFolder(schema), schema);
+
   await formatFiles(tree);
   return () => {
     installPackagesTask(tree);
