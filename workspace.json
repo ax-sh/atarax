@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "minimal-react-vite": "apps/minimal-react-vite"
+  }
 }
